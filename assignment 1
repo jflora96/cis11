@@ -1,3 +1,77 @@
+James Flora
+CIS 11 Assignment 1
+1.1.3
+1. How do assemblers and linkers work together?
+A linker combines all of the instructions into a single program, an assembler converts the assembly language into machine language (binary).
+
+3.) What is meant by a one-to-many relationship when comparing a high-level language to
+machine language?
+A single instruction in a high level language can translate to several instructions in machine language.
+
+8. Do you suppose type checking on pointer variables is stronger (stricter) in assembly language, or in C and C++?
+Assembly requires you to use the actual registry whereas in C the compiler does it for you.
+
+12. Challenge: Translate the following C++ expression to assembly language, using the example
+presented earlier in this chapter as a guide: X  = (Y * 4) + 3.
+mov 	eax, Y
+mov	ebx, 4
+imul	ebx
+add	eax, 3
+mov	X, eax
+
+1.2.1
+2. Why do you suppose translated programs often execute more quickly than interpreted ones?
+Converting the entire program at once and then running is more apt for efficiency because of the ‘many to one’ concept that higher level languages have as opposed to machine language.
+
+3. (True/False): When an interpreted program written in language L1 runs, each of its instructions is decoded and executed by a program written in language L0.
+True
+
+10. Statements at the assembly language level of a virtual machine are translated into statements at which other level?
+ISA Level.
+
+1.3.9
+2. What is the decimal representation of each of the following unsigned binary integers?
+a. 11111000 = 248
+b. 11001010 = 202
+c. 11110000 = 240
+
+3. What is the sum of each pair of binary integers?
+a. 00001111 + 00000010 = 00010001 
+b. 11010101 + 01101011 = 101000000
+c. 00001111 + 00001111 = 00011110
+5. What is the minimum number of binary bits needed to represent each of the following
+unsigned decimal integers?
+a. 65 - 7
+b. 409 - 9
+c. 16385 - 14
+
+6. What is the hexadecimal representation of each of the following binary numbers?
+a. 0011 0101 1101 1010 = 35DA
+b. 1100 1110 1010 0011 = CEDB
+c. 1111 1110 1101 1011 = FEDB
+
+7. What is the binary representation of the following hexadecimal numbers?
+a. A4693FBC = 1010 0100 0110 1001 0011 1111 1011 1100
+b. B697C7A1 = 1011 0110 1001 0111 1100 0111 1010 0001
+c. 2B3D9461 = 0010 1011 0011 1101 1001 0100 0110 0001
+
+1.7.1
+1. In an 8-bit binary number, which is the most significant bit (MSB)? The first one
+
+2. 
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <iostream>
 #include <cmath>
 using namespace std;

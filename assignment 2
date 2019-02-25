@@ -1,0 +1,15 @@
+2.1.5
+
+1. The central processor unit (CPU) contains registers and what other basic elements? ALU, CU, Clock.
+
+2. The central processor unit is connected to the rest of the computers ystem using what three buses? Data bus, control bus, address bus.
+
+3. Why does memory access take more machine cycles than register access? reading a value from memory takes four steps (address is placed on the address bus, change the value of the processor's read pin, memory chip responds, data is copied from the bus to the destination)
+
+4. What are the three basic steps in the instruction execution cycle? Fetch, decode, and execute.
+
+5. Which two additional steps are required in the instruction execution cycle when a memory operand is used? copying data, and waiting a clock cycle for a response.
+
+2.4.3
+
+5. What is the purpose of the 8259A PIC controller? 

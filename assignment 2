@@ -12,4 +12,35 @@
 
 2.4.3
 
-5. What is the purpose of the 8259A PIC controller? 
+5. What is the purpose of the 8259A PIC controller? It immediately gives priority to user input devices such as keyboard or mice. It stops whatever the cpu is doing before that point, and makes those inputs a priority.
+
+
+2.5.2
+
+1. Of the four levels of input/output in a computer system, which is the most universal and portable? It seems as though the BIOS level is the most universal because it works on all systems that have a BIOS in the first place (which is most of them). The hardware level seems like it would be less universal because the programming has to be changed/extended to handle variation in I/O's.
+
+3. Why are device drivers necessary, given that the BIOS already has code that communicates with the computer's hardware? The device itself has specific requests to the hardware for data. Device drivers allow that device to communicate uniquely with the hardware as to ensure security. Generic communication is executed before the device drivers are installed, but they need to be installed for unique communication to occur.
+
+4. In the example regarding displaying a string of characters, which level exists between the operating system and the video controller card? Level 2, the OS level. The levels below this still perform some function, but assuming the OS is being used to output the text, the driver would have to communicate with the OS itself as well as the BIOS and hardware.
+
+5. Is it likely that the BIOS for a computer running MS-Windows would be different from that used by a computer running Linux? Likely? Yes. But not because of the Windows/Linux difference. Most computers have different BIOS from one another, but the BIOS itself doesn't limit what operating system can be used on the computer.
+
+
+2.8
+7. Which part of the CPU performs floating-point arithmetic? ALU
+
+8. On a 32-bit processor, how many bits are contained in each floating-point data register? 80
+
+9. The x86-64 instruction set is backward-compatible with the x86 instruction set. True
+
+10. In current 64-bit chip implementations, all 64 bits are used for addressing. False
+
+12. Static RAM is usually less expensive than dynamic RAM. False
+
+19. A bus is a plastic cable that is attached to the motherboard at both ends, but does not sit directly on the motherboard. False
+
+20. CMOS RAM is the same as static RAM, meaning that it holds its value without any extra power or refresh cycles. False
+
+25. At which level can an assembly language program manipulate input/output? Hardware level and up.
+
+26. Why do game programs often send their sound output directly to the sound card's hardware ports? Its quicker to go directly to the hardware ports than to go through the several levels of OS and BIOS firmware to get there.

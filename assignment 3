@@ -1,0 +1,121 @@
+James Flora
+CIS-11 Assignment 3
+
+3.1.11
+
+1. Using the value –35, write it as an integer literal in decimal, hexadecimal, octal, and binary formats that are consistent with MASM syntax.
+-35d
+0FFDDh
+-43o
+1111111111011101b
+
+2. (Yes/No): Is A5h a valid hexadecimal literal? 
+No, it needs the 0 in front of it so the assembler doesn't mistake it for an identifier
+
+3. (Yes/No): Does the multiplication operator (*) have a higher precedence than the division operator (/) in integer expressions?
+No, they are the same precedence and read left to right.
+
+4. Create a single integer expression that uses all the operators from Section 3.1.2. Calculate the value of the expression.
+(5 + 6) * (4 - 3) / (3 - 2) MOD (5 - 4) = 11
+
+3.2.4
+
+4. In the AddTwo program, which register holds the sum?
+eax
+
+5. In the AddTwo program, which statement halts the program?
+main ENDP
+
+3.3.3
+
+1. What types of files are produced by the assembler? 
+object files, listing files, and executable files.
+
+2. (True/False): The linker extracts assembled procedures from the link library and inserts them in the executable program.
+true
+
+3. (True/False): When a program’s source code is modified, it must be assembled and linked again before it can be executed with the changes.
+true
+
+4. Which operating system component reads and executes programs?
+the loader
+
+3.4.13
+
+1. Create an uninitialized data declaration for a 16-bit signed integer.
+word1 SWORD ?
+
+2. Create an uninitialized data declaration for an 8-bit unsigned integer.
+word1 BYTE ?
+
+3. Create an uninitialized data declaration for an 8-bit signed integer.
+word1 SBYTE ?
+
+4. Create an uninitialized data declaration for a 64-bit integer.
+word1  QWORD ?
+
+5. Which data type can hold a 32-bit signed integer?
+SDWORD
+
+3.5.5
+
+3. Write a statement that causes the assembler to calculate the number of bytes in the following array, and assign the value to a symbolic constant named ArraySize:
+myArray WORD 20 DUP(?)
+
+ArraySize = ($ - myArray) / 2
+
+3.9.1
+
+4. Explain why the term assembler language is not quite correct. 
+It does much more than that, it assembles, links and loads the program rather than just assembling it.
+
+5. Explain the difference between big endian and little endian. Also, look up the origins of this term on the Web.
+Big endian refers to data being stored by its larger end first (larger data goes in first). Little endian refers to data being stored by its little end first (start with the smallest).
+
+6. Why might you use a symbolic constant rather than an integer literal in your code?
+Makes your code more readable to people. Also updating a symbol as code goes on is easier than making a new integer declaration every time you need to use whatever that symbol refers to.
+
+25. Which data directive creates a 32-bit signed integer variable?
+SDWORD
+
+3.9.2
+
+4. Find out if you can declare a variable of type DWORD and assign it a negative value. What does this tell you about the assembler’s type checking?
+The assembler just converts it to the positive value of what it would be.
+
+7. Declare an array of 120 uninitialized unsigned doubleword values.
+mylist DWORD 120 DUP(?)
+
+13. Declare a string variable containing the word “TEST” repeated 500 times.
+mystring BYTE 500 DUP("TEST")
+
+3.10
+
+2. Symbolic Integer Constants
+Write a program that defines symbolic constants for all seven days of the week. Create an array
+variable that uses the symbols as initializers.
+
+
+.386
+.model flat, stdcall
+.stack 4096
+ExitProcess PROTO, dwExitCode: DWORD
+
+.data
+	;define variables here
+	Sunday = "Sunday"
+	Monday = "Monday"
+	Tuesday = "Tuesday"
+	Wednesday = "Wednesday"
+	Thursday = "Thursday"
+	Friday = "Friday"
+	Saturday = "Saturday"
+	myarray BYTE Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+  
+.code
+main PROC
+	; write code here
+
+		INVOKE ExitProcess, 0
+	main ENDP
+	END main

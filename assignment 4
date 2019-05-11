@@ -1,0 +1,94 @@
+James Flora
+CIS 11 Assignment 4
+
+4.2.8
+
+1. Write an instruction that increments val2.
+inc val2
+
+2. Write an instruction that subtracts val3 from EAX.
+sub eax, val3
+
+3. Write instructions that subtract val4 from val2.
+mov eax, val4
+sub val2, eax
+
+4. If val2 is incremented by 1 using the ADD instruction, what will be the values of the Carry and Sign flags?
+0 and 0
+
+5. If val4 is incremented by 1 using the ADD instruction, what will be the values of the Overflow and Sign flags?
+1 and 0
+
+6. Where indicated, write down the values of the Carry, Sign, Zero, and Overflow flags after
+each instruction has executed:
+mov ax,7FF0h
+add al,10h ; a. CF = 1 SF = 0 ZF = 0 OF = 0
+add ah,1 ; b. CF = 1 SF = 0 ZF = 0 OF = 0
+add ax,2 ; c. CF = 1 SF = 0 ZF = 1 OF = 0
+
+4.3.8
+1. (True/False): The OFFSET operator always returns a 16-bit value.
+false
+
+2. (True/False): The PTR operator returns the 32-bit address of a variable.
+false
+
+3. (True/False): The TYPE operator returns a value of 4 for doubleword operands.
+true
+
+4. (True/False): The LENGTHOF operator returns the number of bytes in an operand.
+false
+
+5. (True/False): The SIZEOF operator returns the number of bytes in an operand.
+true
+
+4.4.5
+
+4. (True/False): The following is an indexed operand: array[esi]
+true
+
+5. Fill in the requested register values on the right side of the following instruction sequence:
+mov esi,OFFSET myBytes
+mov al,[esi] ; a. AL = 10h
+mov al,[esi+3] ; b. AL = 40h
+mov esi,OFFSET myWords + 2
+mov ax,[esi] ; c. AX = 3bh
+mov edi,8
+mov edx,[myDoubles + edi] ; d. EDX = 3
+mov edx,myDoubles[edi] ; e. EDX =3
+mov ebx,myPointer
+mov eax,[ebx+4] ; f. EAX = 4
+
+4.10
+
+7.  Copy a String in Reverse Order
+Write a program with a loop and indirect addressing that copies a string from source to target, reversing the character order in the process. Use the following variables:
+source BYTE "This is the source string",0
+target BYTE SIZEOF source DUP('#')
+
+.386
+.model flat, stdcall
+.stack 4096
+ExitProcess PROTO, dwExitCode: DWORD
+
+.data
+	;define variables here
+	source BYTE "This is the source string",0
+	target BYTE SIZEOF source DUP('#')
+
+.code
+main PROC
+	; write code here
+	mov		esi,0				;starts at the beginning of the string (the source string) so it will use the first character and move forwards
+	mov		edi,LENGTHOF source ;starts at the end of the string (for the target string) so it will put the last character first and move backwards
+	mov		ecx,SIZEOF source	;counter for the loop so it will loop through the entire string
+L1:
+	mov		eax, source[esi]	;moves character from source into eax register
+	mov		target[edi], eax	;moves character from eax into target
+	inc		esi					;moves the index forward by one so it will move to the next character
+	dec		edi					;moves the index for the 2nd array back by one so it will copy the next character
+	loop	L1
+	
+		INVOKE ExitProcess, 0
+	main ENDP
+	END main
